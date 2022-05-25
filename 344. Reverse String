@@ -1,0 +1,15 @@
+//Time complexity : O(N) to swap N/2 element.
+//Space complexity : O(1). constant space solution
+class Solution {
+    public void reverseString(char[] s) {
+        int pointer1 = 0;
+        int pointer2 = s.length-1;
+        for(int i=0; i<s.length/2 ;i++){ // could be while(left<right)
+            char temp = s[pointer1];
+            s[pointer1] = s[pointer2];
+            s[pointer2] = temp;    
+            pointer1++;
+            pointer2--;
+        }
+    }
+}
