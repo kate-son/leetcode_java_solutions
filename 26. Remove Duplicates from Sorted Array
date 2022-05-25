@@ -1,0 +1,15 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int leng = nums.length;
+        int a_pointer = 1; //다른것 나올때를 체크하는 앞에서 부터 끝까지 진행하는 포인터
+        int b_pointer = 1; //다른것이 나오면 앞쪽으로 치환할 위치를 표시하는 포인터
+        
+        for (a_pointer=1; a_pointer<leng ; a_pointer++){
+            if (nums[a_pointer] != nums[a_pointer-1]){
+                nums[b_pointer] = nums[a_pointer];
+                b_pointer++;
+            }
+        }
+        return b_pointer ;
+    }
+}
