@@ -1,0 +1,18 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap <Integer, Integer>();
+        int[] result = new int[2];
+        
+        for(int j = 0; j < nums.length; j++){
+            int a = target - nums[j]; //target값에서 현재 element를 뺀 값
+            if(map.containsKey(a)) {//target값에서 현재 element를 뺀 값이 hashmap key에 있고 현재 인덱스값이 아니면
+                result[0] = j;
+                result[1] = map.get(a);
+                return result;
+            } 
+            map.put(nums[j], j); //array의 각 element와 index를 hashmap에 넣음
+        }
+        return null;
+        }
+}
+
