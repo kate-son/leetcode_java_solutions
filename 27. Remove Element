@@ -1,0 +1,15 @@
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        int a_pointer = 0; //array끝까지 돌면서 같은것 있는지 점검
+        int b_pointer = 0; //val과 다른것들을 치환할 위치포인터
+        
+        for(a_pointer =0 ; a_pointer < nums.length; a_pointer++){
+            if (nums[a_pointer] != val){ //값이 val과 다르다면
+              nums[b_pointer] = nums[a_pointer];//치환해주고
+              b_pointer++;  //다음 치환 위치를 하나 증가
+            }
+        }
+        return b_pointer;
+    }
+}
+//TC: O(n), SC: O(1)
