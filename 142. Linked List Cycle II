@@ -1,0 +1,13 @@
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        HashSet<ListNode> isVisited = new HashSet<ListNode>();
+        while(head != null){
+            if(isVisited.contains(head)){
+                return head;
+            }
+            isVisited.add(head);
+            head = head.next;
+        }
+        return null;
+    }
+}//TC:O(n), SC:O(n)
