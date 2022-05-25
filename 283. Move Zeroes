@@ -1,0 +1,16 @@
+class Solution {
+    public void moveZeroes(int[] nums) {
+        //int a_pointer = 0; //배열의 끝까지 차례로 순회
+        int b_pointer = 0; //다음 non zero숫자가 위치해야할 자리를 가리킴
+        
+        for(int a_pointer=0; a_pointer < nums.length; a_pointer++){
+            if(nums[a_pointer] != 0){ //해당숫자가 0이 아니면
+                nums[b_pointer] = nums[a_pointer]; //다음 non zero숫자가 위치해야할 자리에 가져다 놓음
+                b_pointer++;
+            }
+        }        
+        for(int i=b_pointer; i < nums.length; i++){
+            nums[i] = 0;
+        }
+    }
+}
