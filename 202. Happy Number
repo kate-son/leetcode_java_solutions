@@ -1,0 +1,51 @@
+// class Solution {
+//     public boolean isHappy(int n) {
+//         HashSet<Integer> seen = new HashSet();
+        
+//         while(n!=1){
+//             int current = n;
+//             int sum = 0;
+            
+//             while(current!=0){
+//                 sum = sum + (current%10) * (current%10);
+//                 current = current/10;
+//             }
+            
+//             if (seen.contains(sum)){ //check if it contains on seen - cycle check
+//                 return false;    
+//             }
+            
+//             seen.add(sum);
+//             n = sum;
+//             }
+//         return true;
+//     }
+// }
+
+//
+
+
+class Solution {
+    public boolean isHappy(int n) {
+        HashSet<Integer> seen = new HashSet();
+        
+        while(n!=1 && !seen.contains(sum)){
+            int current = n;
+            //int sum = 0;
+            seen.add(sum);
+            
+            while(current!=0){
+                sum = sum + (current%10) * (current%10);
+                current = current/10;
+            }
+            
+            if (seen.contains(sum)){ //check if it contains on seen - cycle check
+                return false;    
+            }
+            
+            
+            n = sum;
+            }
+        return true;
+    }
+}
