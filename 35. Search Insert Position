@@ -1,0 +1,19 @@
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int idx = 0;
+        for(int i = 0 ; i < nums.length ; i++){
+            if(nums[i] >= target){
+                idx = i;
+                break;
+            }
+            idx = nums.length;
+        }
+        return idx;
+    }
+}
+
+
+#Python
+class Solution(object):
+    def searchInsert(self, nums, target):
+        return bisect.bisect_left(nums, target)
