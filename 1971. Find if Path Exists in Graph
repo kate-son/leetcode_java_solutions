@@ -25,7 +25,7 @@ class Solution {
         for(int s : graph.get(start)){
             if(s == end){ //found
                 isFound = true;
-                break;
+                return;
             }
             if(!visited[s])
                 dfs(graph, visited, s, end); //recursive call
