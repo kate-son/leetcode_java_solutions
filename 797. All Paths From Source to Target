@@ -1,0 +1,25 @@
+class Solution {
+    // DFS 
+    public List<List<Integer>> allPathsSourceTarget(int[][] graph) {  
+        List<List<Integer>> paths = new ArrayList<>();
+        if (graph == null || graph.length == 0) {
+            return paths;
+        }
+
+        dfs(graph, 0, new ArrayList<>(), paths);
+        return paths;
+    }
+
+    void dfs(int[][] graph, int node, List<Integer> path, List<List<Integer>> paths) {
+        path.add(node); //initially start from 0
+        if (node == graph.length - 1) { // if node is target node
+            paths.add(new ArrayList<>(path)); //add that path
+            return;
+        }
+        int[] nextNodes = graph[node]; //graph is 2d array, grah[node] is list of adjacent nodes
+        for (int n: nextNodes) { //iterate adjacent nodes
+            dfs(graph, n, path, paths);//recursive call dfs
+            path.remove(path.size() - 1); //path reset 
+        }
+    }
+} // no need to mark "visited" (only need in undirected graph)
