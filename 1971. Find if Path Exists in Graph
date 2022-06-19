@@ -1,0 +1,34 @@
+class Solution {
+    boolean isFound = false;
+    public boolean validPath(int n, int[][] edges, int start, int end) {
+        if(start == end) return  true;
+        
+        Map<Integer,List<Integer>> graph = new HashMap();
+        boolean[] visited = new boolean[n];
+        
+        for(int i = 0 ; i < n ; i++){
+            graph.put(i, new ArrayList()); //key is each number, value is connected node
+        } 
+
+        for(int[] edge : edges){ //iterate 2d array
+           graph.get(edge[0]).add(edge[1]); //add both direction 1
+           graph.get(edge[1]).add(edge[0]); //add both direction 2
+        }
+		//start dfs from start point
+        dfs(graph,visited,start,end);
+        return isFound;
+    }
+    
+    private void dfs(Map<Integer,List<Integer>> graph,boolean[] visited, int start, int end){
+        visited[start] = true; 
+
+        for(int s : graph.get(start)){
+            if(s == end){ //found
+                isFound = true;
+                break;
+            }
+            if(!visited[s])
+                dfs(graph, visited, s, end); //recursive call
+        }
+    }
+}
