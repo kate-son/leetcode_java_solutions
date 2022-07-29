@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        
+        Set seen = new HashSet();
+
+        for(int i=0; i < 9; i++){
+            for(int j=0; j < 9; j++){
+                char current_val = board[i][j];
+                if (current_val != '.'){
+                    if(!seen.add(current_val+"r"+i) ||
+                       !seen.add(current_val+"c"+j) ||
+                       !seen.add(current_val+"b"+ i/3 + "-" + j/3))
+                       return false;
+                    
+                }
+            }
+        }
+        return true;    
+    }
+}
+
+
+// Hash_Set.add(Object element)
+
+// Parameters: The parameter element is of the type HashSet and refers to the element to be added to the Set.
+
+// Return Value: The function returns True if the element is not present in the HashSet otherwise False if the element is already present in the HashSet.
