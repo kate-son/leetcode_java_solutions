@@ -1,0 +1,9 @@
+class Solution {
+  public String reverseWords(String s) {
+    s = s.trim();
+    // split by multiple spaces \\s - matches single whitespace character. \\s+ - matches sequence of one or more whitespace characters
+    List<String> wordList = Arrays.asList(s.split("\\s+")); //The + at the end of the regular-expression, would treat multiple spaces the same as a single space.
+    Collections.reverse(wordList); //Collections.reverse() method to reverse the order of the elements in the specified list.
+    return String.join(" ", wordList);
+  }
+}
